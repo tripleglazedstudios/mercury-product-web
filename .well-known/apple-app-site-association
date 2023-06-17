@@ -1,0 +1,13 @@
+{
+    "applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appID": "8Q4JB5Y533.com.tripleglazedstudios.Weather",
+                "paths": [
+                    "/events/*"
+                ]
+            }
+        ]
+    }
+}
