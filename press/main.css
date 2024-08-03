@@ -185,6 +185,10 @@ p.sign-up-text {
     margin-right: 10%;
 }
 
+li {
+    margin-bottom: 0.5em;
+}
+
 .text-center {
     text-align: center;
 }
