@@ -64,9 +64,47 @@
                         </div>
                     </div>
                     
-                    <div class="download-section">
+                    <div class="app-store-section">
                         <a href="https://apps.apple.com/app/apple-store/id1621800675?pt=120812402&ct=web&mt=8" class="app-store-button-original" style="display: inline-block; overflow: hidden; border-radius: 6px; width: 120px; height: 40px;"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/white/en-us?size=120x40&amp;releaseDate=1662940800" alt="Download on the App Store" style="border-radius: 6px; width: 120px; height: 40px;"></a>
-                        
+                    </div>
+                    
+                    <div class="press-section">
+                        <h3 class="press-title">Loved on the internet</h3>
+                        <div class="press-quotes">
+                            <a href="https://www.macstories.net/stories/macstories-selects-2023-recognizing-the-best-apps-of-the-year/#best-design" target="_blank" class="press-quote-link">
+                                <div class="press-quote">
+                                    <p class="quote-text">"Mercury Weather is a modern app that is designed to be both beautiful and delightfully simple [...] uses a palette of elegant gradients [...] the forecast is always a pleasure to read."</p>
+                                    <p class="quote-source">— Niléane, MacStories Selects – Best Design</p>
+                                </div>
+                            </a>
+                            <a href="https://daringfireball.net/linked/2022/09/20/mercury-weather" target="_blank" class="press-quote-link">
+                                <div class="press-quote">
+                                    <p class="quote-text">"Great presentation [...] its creators have decided how it should look, and they've knocked it out of the park."</p>
+                                    <p class="quote-source">— John Gruber, Daring Fireball</p>
+                                </div>
+                            </a>
+                            <a href="https://apps.apple.com/us/story/id1720062423" target="_blank" class="press-quote-link">
+                                <div class="press-quote">
+                                    <p class="quote-text">"Mercury Weather's colorful gradients and minimalist design make it easy to get the full forecast at a glance."</p>
+                                    <p class="quote-source">— Apple Developer Spotlight</p>
+                                </div>
+                            </a>
+                            <a href="https://9to5mac.com/2023/08/18/mercury-weather-app/" target="_blank" class="press-quote-link">
+                                <div class="press-quote">
+                                    <p class="quote-text">"Simple but elegant new weather app for Apple devices."</p>
+                                    <p class="quote-source">— Filipe Espósito, 9to5Mac</p>
+                                </div>
+                            </a>
+                            <a href="https://www.imore.com/apps/this-simple-iphone-weather-app-is-a-must-have-for-travellers" target="_blank" class="press-quote-link">
+                                <div class="press-quote">
+                                    <p class="quote-text">"Everything about Mercury Weather is a little simpler, a little more refined and a little more enjoyable than its rivals."</p>
+                                    <p class="quote-source">— Becca Caddy, iMore</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="download-section">
                         <div class="additional-links">
                             <a href="press" class="press-link">
                                 📰 Press Kit
@@ -293,6 +331,61 @@
             white-space: nowrap;
         }
         
+        .press-section {
+            margin-bottom: 2.5rem;
+            padding: 2rem 0;
+        }
+        
+        .press-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .press-quotes {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .press-quote-link {
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+        
+        .press-quote {
+            background: rgba(102, 126, 234, 0.04);
+            border-left: 3px solid rgba(102, 126, 234, 0.3);
+            padding: 1rem 1.25rem;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+        
+        .press-quote:hover {
+            background: rgba(102, 126, 234, 0.08);
+            transform: translateX(2px);
+        }
+        
+        .quote-text {
+            font-size: 0.9rem;
+            color: #4a5568;
+            line-height: 1.5;
+            margin-bottom: 0.5rem;
+            font-style: italic;
+        }
+        
+        .quote-source {
+            font-size: 0.8rem;
+            color: #718096;
+            font-weight: 600;
+            text-align: right;
+        }
+        
         .download-section {
             display: flex;
             flex-direction: column;
@@ -324,6 +417,11 @@
             color: #4a5568;
             background: rgba(113, 128, 150, 0.2);
             transform: translateY(-1px);
+        }
+        
+        .app-store-section {
+            margin-bottom: 2.5rem;
+            text-align: center;
         }
         
         /* Responsive design */
