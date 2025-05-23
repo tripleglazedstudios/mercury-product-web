@@ -424,6 +424,90 @@
             text-align: center;
         }
         
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            }
+            
+            .container {
+                background: rgba(30, 30, 30, 0.95);
+                box-shadow: 
+                    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+                    0 0 0 1px rgba(255, 255, 255, 0.1);
+            }
+            
+            .main-title {
+                background: linear-gradient(135deg, #e2e8f0, #cbd5e0);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+            
+            .highlight {
+                background: linear-gradient(135deg, #667eea, #764ba2);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+            
+            .app-name {
+                color: #e2e8f0;
+            }
+            
+            .app-description {
+                color: #a0aec0;
+            }
+            
+            .feature-item {
+                background: rgba(102, 126, 234, 0.15);
+                border: 1px solid rgba(102, 126, 234, 0.2);
+            }
+            
+            .feature-item:hover {
+                background: rgba(102, 126, 234, 0.25);
+            }
+            
+            .feature-text {
+                color: #cbd5e0;
+            }
+            
+            .press-title {
+                color: #e2e8f0;
+            }
+            
+            .press-quote {
+                background: rgba(102, 126, 234, 0.1);
+                border-left: 3px solid rgba(102, 126, 234, 0.4);
+            }
+            
+            .press-quote:hover {
+                background: rgba(102, 126, 234, 0.2);
+            }
+            
+            .quote-text {
+                color: #cbd5e0;
+            }
+            
+            .quote-source {
+                color: #a0aec0;
+            }
+            
+            .press-link {
+                color: #a0aec0;
+                background: rgba(160, 174, 192, 0.1);
+            }
+            
+            .press-link:hover {
+                color: #cbd5e0;
+                background: rgba(160, 174, 192, 0.2);
+            }
+            
+            .cloud {
+                opacity: 0.05;
+            }
+        }
+        
         /* Responsive design */
         @media (max-width: 768px) {
             .container {
