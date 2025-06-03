@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Mercury Weather ☁️ - WWDC25</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#667eea">
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1a1a2e">
+        <link rel="me" href="https://indieapps.space/@mercury">
+        <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/touch-icon-iphone-retina.png">
+        <link rel="icon" href="/favicon.ico">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <!-- Background elements -->
+        <div class="background-clouds">
+            <div class="cloud cloud-1">☁️</div>
+            <div class="cloud cloud-2">☁️</div>
+            <div class="cloud cloud-3">☁️</div>
+            <div class="cloud cloud-4">⛅</div>
+            <div class="cloud cloud-5">☁️</div>
+        </div>
+        
+        <main class="container">
+            <div class="hero-section">
+                <div class="wave-container">
+                    <div id="wave">👋</div>
+                </div>
+                
+                <div class="content">
+                    <h1 class="main-title">
+                        Happy <span class="highlight">WWDC25</span>!
+                    </h1>
+                    
+                    <div class="app-showcase">
+                        <a href="https://apps.apple.com/app/apple-store/id1621800675?pt=120812402&ct=web&mt=8" class="app-icon-link">
+                            <div class="app-icon-container">
+                                <img id="icon" src="wwdc25.webp" srcset="wwdc25.webp 1x" alt="Mercury Weather WWDC25 special icon" onerror="this.src='../img/icon@3x.png'; this.srcset='../img/icon@1x.png 1x, ../img/icon@2x.png 2x, ../img/icon@3x.png 3x';">
+                                <div class="icon-glow"></div>
+                            </div>
+                        </a>
+                        
+                        <div class="app-info">
+                            <h2 class="app-name">Mercury Weather</h2>
+                            <p class="app-description">Celebrating beautiful design and the amazing developer community at Apple's Worldwide Developers Conference.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="features-preview">
+                        <div class="feature-item">
+                            <span class="feature-icon">🎉</span>
+                            <span class="feature-text">WWDC25 ready</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">📱</span>
+                            <span class="feature-text">All Apple platforms</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">☁️</span>
+                            <span class="feature-text">Beautiful forecasts</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🗺️</span>
+                            <span class="feature-text">Trip forecast</span>
+                        </div>
+                    </div>
+                    
+                    <div class="app-store-section">
+                        <a href="https://apps.apple.com/app/apple-store/id1621800675?pt=120812402&ct=web&mt=8" class="app-store-button-original" style="display: inline-block; overflow: hidden; border-radius: 6px; width: 120px; height: 40px;"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/white/en-us?size=120x40&amp;releaseDate=1662940800" alt="Download on the App Store" style="border-radius: 6px; width: 120px; height: 40px;"></a>
+                    </div>
+                    
+                    <div class="download-section">
+                        <div class="additional-links">
+                            <a href="../press" class="press-link">
+                                📰 Press Kit
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+    
+    <style>
+        html {
+            background-color: #667eea;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        /* Background clouds animation */
+        .background-clouds {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .cloud {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.1;
+            animation: float 20s infinite linear;
+        }
+        
+        .cloud-1 { top: 10%; animation-delay: 0s; }
+        .cloud-2 { top: 25%; animation-delay: -5s; }
+        .cloud-3 { top: 60%; animation-delay: -10s; }
+        .cloud-4 { top: 75%; animation-delay: -15s; }
+        .cloud-5 { top: 40%; animation-delay: -8s; }
+        
+        @keyframes float {
+            0% { transform: translateX(-100px); }
+            100% { transform: translateX(calc(100vw + 100px)); }
+        }
+        
+        .container {
+            padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 
+                0 25px 50px -12px rgba(0, 0, 0, 0.25),
+                0 0 0 1px rgba(255, 255, 255, 0.2);
+            text-align: center;
+            margin: 3rem;
+            max-width: 680px;
+            width: 90%;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-section {
+            position: relative;
+        }
+        
+        .wave-container {
+            margin-bottom: 2rem;
+        }
+        
+        #wave {
+            font-size: 4rem;
+            animation: wave 3s ease-in-out infinite;
+            display: inline-block;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+        }
+        
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-15deg); }
+            75% { transform: rotate(10deg); }
+        }
+        
+        .main-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, #2d3748, #4a5568);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .app-showcase {
+            margin-bottom: 2rem;
+        }
+        
+        .app-icon-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+        
+        .app-icon-link {
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+        }
+        
+        #icon {
+            width: 140px;
+            height: 140px;
+            transition: transform 0.3s ease;
+            border-radius: 20px;
+        }
+        
+        #icon:hover {
+            transform: scale(1.05) translateY(-2px);
+        }
+        
+        .icon-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            0% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+            100% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.1); }
+        }
+        
+        .app-info {
+            margin-bottom: 2rem;
+        }
+        
+        .app-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+        
+        .app-description {
+            font-size: 1rem;
+            color: #718096;
+            font-weight: 400;
+            line-height: 1.6;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .features-preview {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+            margin-bottom: 2.5rem;
+            justify-items: center;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 2.5rem;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            background: rgba(102, 126, 234, 0.08);
+            border-radius: 12px;
+            transition: all 0.2s ease;
+            width: 100%;
+            min-width: 200px;
+        }
+        
+        .feature-item:hover {
+            background: rgba(102, 126, 234, 0.12);
+            transform: translateY(-1px);
+        }
+        
+        .feature-icon {
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            width: 1.5rem;
+            text-align: center;
+            line-height: 1;
+            vertical-align: middle;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 1.5rem;
+        }
+        
+        .feature-text {
+            font-size: 0.9rem;
+            color: #4a5568;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        
+        .download-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .app-store-button-original {
+            transition: all 0.2s ease;
+        }
+        
+        .app-store-button-original:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .press-link {
+            color: #718096;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            background: rgba(113, 128, 150, 0.1);
+        }
+        
+        .press-link:hover {
+            color: #4a5568;
+            background: rgba(113, 128, 150, 0.2);
+            transform: translateY(-1px);
+        }
+        
+        .app-store-section {
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+        
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            html {
+                background-color: #1a1a2e !important;
+                background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            }
+            
+            .container {
+                background: rgba(30, 30, 30, 0.95);
+                box-shadow: 
+                    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+                    0 0 0 1px rgba(255, 255, 255, 0.1);
+            }
+            
+            .main-title {
+                background: linear-gradient(135deg, #e2e8f0, #cbd5e0);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+            
+            .highlight {
+                background: linear-gradient(135deg, #667eea, #764ba2);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+            
+            .app-name {
+                color: #e2e8f0;
+            }
+            
+            .app-description {
+                color: #a0aec0;
+            }
+            
+            .feature-item {
+                background: rgba(102, 126, 234, 0.15);
+                border: 1px solid rgba(102, 126, 234, 0.2);
+            }
+            
+            .feature-item:hover {
+                background: rgba(102, 126, 234, 0.25);
+            }
+            
+            .feature-text {
+                color: #cbd5e0;
+            }
+            
+            .press-link {
+                color: #a0aec0;
+                background: rgba(160, 174, 192, 0.1);
+            }
+            
+            .press-link:hover {
+                color: #cbd5e0;
+                background: rgba(160, 174, 192, 0.2);
+            }
+            
+            .cloud {
+                opacity: 0.05;
+            }
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 2rem 1.5rem;
+                margin: 1rem 0.5rem 0.5rem;
+            }
+            
+            .main-title {
+                font-size: 2rem;
+            }
+            
+            #wave {
+                font-size: 3rem;
+            }
+            
+            #icon {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .icon-glow {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .features-preview {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+                max-width: 300px;
+            }
+            
+            .feature-text {
+                font-size: 0.85rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: 1.75rem;
+            }
+            
+            .app-store-button-original img {
+                width: 120px;
+                height: 40px;
+            }
+            
+            .features-preview {
+                gap: 0.4rem;
+            }
+        }
+    </style>
+</html> 
