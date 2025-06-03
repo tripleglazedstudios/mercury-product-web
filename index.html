@@ -105,7 +105,17 @@
                             </a>
                         </div>
                     </div>
-                    
+
+                    <div class="gallery-section">
+                        <h3 class="gallery-title">Screenshots</h3>
+                        <div class="screenshot-gallery">
+                            <img src="press/img/iOS-18-bento.webp" alt="App screenshot 1" loading="lazy">
+                            <img src="press/img/iOS-2.10.webp" alt="App screenshot 2" loading="lazy">
+                            <img src="press/img/iOS-2.8.webp" alt="App screenshot 3" loading="lazy">
+                            <img src="press/img/watchOS-11-banner.webp" alt="Watch screenshot" loading="lazy">
+                        </div>
+                    </div>
+
                     <div class="download-section">
                         <div class="additional-links">
                             <a href="press" class="press-link">
@@ -377,7 +387,33 @@
             background: rgba(102, 126, 234, 0.08);
             transform: translateX(2px);
         }
-        
+
+        .gallery-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .gallery-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .screenshot-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .screenshot-gallery img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
         .quote-text {
             font-size: 0.9rem;
             color: #4a5568;
@@ -510,7 +546,11 @@
                 color: #cbd5e0;
                 background: rgba(160, 174, 192, 0.2);
             }
-            
+
+            .gallery-title {
+                color: #e2e8f0;
+            }
+        
             .cloud {
                 opacity: 0.05;
             }
@@ -546,7 +586,11 @@
                 gap: 0.5rem;
                 max-width: 300px;
             }
-        
+
+            .screenshot-gallery {
+                grid-template-columns: 1fr;
+            }
+
             
             .feature-text {
                 font-size: 0.85rem;
