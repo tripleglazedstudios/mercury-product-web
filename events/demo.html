@@ -4,7 +4,7 @@
         <title>Mercury Weather Demo</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#667eea">
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
         <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1a1a2e">
         <link rel="me" href="https://indieapps.space/@mercury">
         <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon.png">
@@ -70,7 +70,7 @@
     </body>
     <style>
         html {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #ffffff;
             color: #2d3748;
         }
 
@@ -101,7 +101,7 @@
             font-size: 2.25rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            background: linear-gradient(135deg, #2d3748, #4a5568);
+            background: linear-gradient(135deg, #667eea, #764ba2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -122,6 +122,8 @@
             flex-direction: column;
             gap: 4rem;
             padding: 0 1rem 3rem;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .feature {
@@ -129,6 +131,7 @@
             align-items: center;
             gap: 2rem;
             flex-wrap: wrap;
+            min-height: 340px;
         }
 
         .feature:nth-child(even) {
@@ -136,7 +139,7 @@
         }
 
         .feature-image img {
-            width: 320px;
+            width: 380px;
             max-width: 100%;
             border-radius: 16px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -150,6 +153,10 @@
         .feature-text h2 {
             font-size: 1.5rem;
             margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .feature-text p {
