@@ -24,6 +24,128 @@
 			body {
 				font-size: 1.1em;
 			}
+			:root {
+				--press-header-max-width: min(960px, calc(100% - 3rem));
+				--press-header-radius: 24px;
+				--press-header-surface: rgba(255, 255, 255, 0.78);
+				--press-header-border: rgba(210, 216, 234, 0.55);
+				--press-header-shadow: 0 28px 48px -26px rgba(22, 30, 66, 0.32);
+				--press-header-text: rgba(16, 28, 64, 0.85);
+				--press-header-text-active: rgba(12, 46, 110, 0.92);
+				--press-header-label: rgba(32, 36, 60, 0.48);
+				--press-header-label-active: rgba(20, 35, 70, 0.65);
+			}
+			.press-header-sentinel {
+				position: relative;
+				height: 1px;
+				width: var(--press-header-max-width);
+				max-width: 100%;
+				margin: 0 auto;
+			}
+			.press-header {
+				position: sticky;
+				top: calc(env(safe-area-inset-top, 0) + clamp(0.85rem, 2vw, 1.6rem));
+				z-index: 40;
+				display: flex;
+				justify-content: center;
+				padding: 0 clamp(1.15rem, 4vw, 2.5rem);
+				margin: 0;
+				font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+				letter-spacing: 0.01em;
+			}
+			.press-header__inner {
+				width: var(--press-header-max-width);
+				max-width: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: clamp(0.6rem, 1.8vw, 1.6rem);
+				padding: clamp(0.9rem, 1.8vw, 1.2rem) clamp(1.4rem, 3vw, 2.2rem);
+				border-radius: var(--press-header-radius);
+				background: var(--press-header-surface);
+				border: 1px solid var(--press-header-border);
+				box-shadow: var(--press-header-shadow);
+				backdrop-filter: saturate(180%) blur(22px);
+				-webkit-backdrop-filter: saturate(180%) blur(22px);
+				transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease, background 220ms ease;
+			}
+			.press-header__home {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.6rem;
+				padding: 0.2em 0;
+				font-size: 1.05em;
+				font-weight: 600;
+				color: var(--press-header-text);
+				text-decoration: none;
+				transition: color 160ms ease;
+			}
+			.press-header__home-text {
+				white-space: nowrap;
+			}
+			.press-header__home-icon {
+				width: 1.35em;
+				height: 1.35em;
+				flex-shrink: 0;
+				transition: transform 200ms ease, opacity 200ms ease;
+				opacity: 0.72;
+			}
+			.press-header__home:focus-visible,
+			.press-header__home:hover {
+				color: var(--press-header-text-active);
+			}
+			.press-header__home:focus-visible {
+				outline: 2px solid currentColor;
+				outline-offset: 4px;
+			}
+			.press-header__home:focus-visible .press-header__home-icon,
+			.press-header__home:hover .press-header__home-icon {
+				opacity: 1;
+				transform: translateX(-3px);
+			}
+			.press-header__label {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.55rem;
+				font-size: 0.78em;
+				letter-spacing: 0.32em;
+				text-transform: uppercase;
+				font-weight: 600;
+				color: var(--press-header-label);
+				white-space: nowrap;
+				transition: color 200ms ease;
+			}
+			.press-header__label-dot {
+				display: inline-block;
+				width: 0.55rem;
+				height: 0.55rem;
+				border-radius: 999px;
+				background: linear-gradient(135deg, #8aa6ff, #c9d9ff);
+				box-shadow: 0 0 0 2px rgba(138, 166, 255, 0.25);
+			}
+			.press-header.is-stuck .press-header__inner {
+				transform: translateY(-0.18rem);
+				background: linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(238, 244, 255, 0.82));
+				border-color: rgba(188, 200, 232, 0.72);
+				box-shadow: 0 30px 60px -28px rgba(18, 28, 64, 0.35);
+			}
+			.press-header.is-stuck .press-header__home {
+				color: var(--press-header-text-active);
+			}
+			.press-header.is-stuck .press-header__label {
+				color: var(--press-header-label-active);
+			}
+			.press-header.is-stuck .press-header__label-dot {
+				background: linear-gradient(135deg, #7d96ff, #b8cdff);
+			}
+			@supports not ((-webkit-backdrop-filter: blur(18px)) or (backdrop-filter: blur(18px))) {
+				.press-header__inner {
+					background: rgba(248, 250, 255, 0.95);
+				}
+				.press-header.is-stuck .press-header__inner {
+					background: #ffffff;
+				}
+			}
 			p {
 				font-weight: bold;
 				font-size: 1.1em;
@@ -64,12 +186,54 @@
 			}
 
 			@media screen and (max-width: 1000px) {
+				:root {
+					--press-header-max-width: calc(100% - 3.5rem);
+				}
+				.press-header {
+					padding: 0 clamp(1rem, 5vw, 1.75rem);
+				}
 				.press-section {
 					margin: 2.5em 12.5% 4.5em 12.5%;
 				}
 			}
 
+			@media screen and (max-width: 680px) {
+				:root {
+					--press-header-max-width: calc(100% - 2.5rem);
+				}
+				.press-header {
+					padding: 0 clamp(0.9rem, 6vw, 1.4rem);
+				}
+				.press-header__inner {
+					padding: clamp(0.85rem, 4vw, 1.05rem) clamp(1.1rem, 6vw, 1.5rem);
+				}
+				.press-header__label {
+					letter-spacing: 0.24em;
+					font-size: 0.74em;
+				}
+				.press-section {
+					margin: 2.5em 8% 4.5em 8%;
+				}
+			}
+
 			@media only screen and (max-width: 414px) {
+				:root {
+					--press-header-max-width: calc(100% - 1.6rem);
+				}
+				.press-header {
+					top: calc(env(safe-area-inset-top, 0) + 0.65rem);
+					padding: 0 0.85rem;
+				}
+				.press-header__inner {
+					flex-direction: column;
+					align-items: flex-start;
+					gap: 0.45rem;
+					padding: 0.85rem 1.05rem;
+				}
+				.press-header__label {
+					letter-spacing: 0.18em;
+					font-size: 0.7em;
+				}
 				.press-section {
 					margin: 2.5em 5% 4.5em 5%;
 				}
@@ -113,19 +277,51 @@
 				body {
 					color: white;
 				}
-
-				h2 {
-					color: #173f6f;
+				:root {
+					--press-header-surface: rgba(26, 30, 48, 0.78);
+					--press-header-border: rgba(98, 112, 156, 0.45);
+					--press-header-shadow: 0 34px 68px -32px rgba(3, 7, 18, 0.78);
+					--press-header-text: rgba(214, 224, 255, 0.82);
+					--press-header-text-active: rgba(232, 240, 255, 0.95);
+					--press-header-label: rgba(188, 199, 240, 0.58);
+					--press-header-label-active: rgba(208, 216, 248, 0.74);
 				}
-
+				.press-header__label-dot {
+					background: linear-gradient(135deg, #7b96ff, #a7bfff);
+					box-shadow: 0 0 0 2px rgba(123, 148, 255, 0.3);
+				}
+				.press-header.is-stuck .press-header__inner {
+					background: linear-gradient(135deg, rgba(36, 42, 68, 0.88), rgba(24, 28, 48, 0.76));
+					border-color: rgba(140, 154, 208, 0.62);
+					box-shadow: 0 38px 72px -34px rgba(2, 6, 18, 0.9);
+				}
+				.press-header.is-stuck .press-header__label-dot {
+					background: linear-gradient(135deg, #9bb4ff, #cadaff);
+				}
+				h2 {
+					color: #9fbfff;
+				}
 			}
 		</style>
 	</head>
 	<body>
+		<div class="press-header-sentinel" aria-hidden="true"></div>
+		<header class="press-header" role="banner">
+			<div class="press-header__inner">
+				<a class="press-header__home" href="../index.html">
+					<svg class="press-header__home-icon" viewBox="0 0 22 22" aria-hidden="true" focusable="false">
+						<path d="M9.75 6.5 4.75 11l5 4.5M17.25 11H5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+					</svg>
+					<span class="press-header__home-text">Mercury Weather</span>
+				</a>
+				<span class="press-header__label">
+					<span class="press-header__label-dot" aria-hidden="true"></span>
+					Press Kit
+				</span>
+			</div>
+		</header>
 		<main>
 			<article class="press-section">
-				<h2>Press Kit</h2>
-				<p>Download the full Press Kit with screenshots, promo-art, logo, and icons <a class="in-text-link" href="mercury-press-kit.zip">here</a>.</p>
 				<h2>Factsheet</h2>
 				<dl>
 					<dt>Developer:</dt>
@@ -580,6 +776,6 @@
 					<p class="copyright-text">© Triple Glazed Studios</p>
 				</div>
 			</div>
-		</footer>
+		</footer>		
 	</body>
 	</html>
