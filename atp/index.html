@@ -1,80 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="mw-theme-marketing">
     <head>
         <title>Mercury Weather ❤️ ATP</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
         <link rel="me" href="https://indieapps.space/@mercury">
         <link rel="apple-touch-icon" sizes="152x152" href="../apple-touch-icon.png">
         <link rel="apple-touch-icon" sizes="180x180" href="../touch-icon-iphone-retina.png">
         <link rel="icon" href="../favicon.ico">
+        <meta name="description" content="Redirecting you to Mercury Weather on the App Store.">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../site.css">
     </head>
-    <body>
-        <main id="container">
-            <div id="wave">👋</div>
-            <div id="text">
-                <h1>Hello ATP listeners!</h1>
-                <img id="icon" src="../img/icon@3x.png" srcset="../img/icon@1x.png 1x, ../img/icon@2x.png 2x, ../img/icon@3x.png 3x" alt="Mercury Weather app icon">
-                <p style="color: #888">Redirecting you to the App Store…</p>
-                <a href="https://apps.apple.com/app/apple-store/id1621800675?pt=120812402&ct=atp&mt=8" style="display: inline-block; overflow: hidden; border-radius: 6px; width: 120px; height: 40px;"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/white/en-us?size=120x40&amp;releaseDate=1662940800" alt="Download on the App Store" style="border-radius: 6px; width: 120px; height: 40px;"></a>
-                <p id="note">(Thank you!)</p>
+    <body class="mw-center">
+        <main class="mw-surface mw-card" role="main">
+            <div class="mw-emoji mw-wave" aria-hidden="true">👋</div>
+            <h1 class="mw-hero-title">Hello ATP listeners!</h1>
+            <img class="mw-app-icon" src="../img/icon@3x.png" srcset="../img/icon@1x.png 1x, ../img/icon@2x.png 2x, ../img/icon@3x.png 3x" alt="Mercury Weather app icon" width="112" height="112" decoding="async">
+            <p class="mw-hero-subtitle mw-muted">Redirecting you to the App Store…</p>
+            <div class="mw-actions">
+                <a href="https://apps.apple.com/app/apple-store/id1621800675?pt=120812402&amp;ct=atp&amp;mt=8" class="mw-app-store-badge"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/white/en-us?size=120x40&amp;releaseDate=1662940800" alt="Download on the App Store"></a>
             </div>
+            <p class="mw-muted" style="margin-top: 1.1rem;">(Thank you!)</p>
+            <noscript>
+                <p class="mw-muted" style="margin-top: 0.75rem;">JavaScript is required for auto-redirect.</p>
+            </noscript>
         </main>
+        <script>
+            setTimeout(function() {
+                window.location.replace("https://apps.apple.com/app/apple-store/id1621800675?pt=120812402&ct=atp&mt=8");
+            }, 2000);
+        </script>
     </body>
-    <script>
-        setTimeout(function() {
-            window.location.replace("https://apps.apple.com/app/apple-store/id1621800675?pt=120812402&ct=atp&mt=8");
-        }, 2000);
-    </script>
-    <style>
-        body {
-            background-color: #f2f2f2;
-            height: 100vh;
-            margin: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: -apple-system, system-ui, Verdana, sans-serif
-        }
-        
-        #icon {
-            -webkit-filter: drop-shadow(0px 0px 1rem rgba(0, 0, 0, 0.25));
-            filter: drop-shadow(0px 0px 1rem rgba(0, 0, 0, 0.25));
-        }
-        
-        #container {
-            background-color: white;
-            padding: 30px 60px 30px 60px;
-            border-radius: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            margin: 16px;
-        }
-        
-        #wave {
-            font-size: 48px;
-            animation: wave 5s infinite;
-        }
-        
-        @keyframes wave {
-            0% { transform: rotate(0deg); }
-            10% { transform: rotate(-10deg); }
-            20% { transform: rotate(12deg); }
-            30% { transform: rotate(-10deg); }
-            40% { transform: rotate(9deg); }
-            50% { transform: rotate(0deg); }
-            100% { transform: rotate(0deg); }
-        }
-        
-        #wave {
-            font-size: 48px;
-            animation: wave 5s infinite;
-            display: inline-block;
-        }
-        
-        #note {
-            color: #a2a2a2;
-            font: caption;
-        }
-    </style>
 </html>
