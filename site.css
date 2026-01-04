@@ -105,12 +105,14 @@
 html {
   background: var(--mw-page-bg);
   min-height: 100%;
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
   font-family: var(--mw-font);
   color: var(--mw-text);
+  overflow-x: hidden;
 }
 
 :where(a) {
