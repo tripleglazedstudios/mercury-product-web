@@ -234,10 +234,17 @@ body {
   gap: 0.55rem;
   padding: 0.6rem 0.9rem;
   border-radius: 999px;
+  box-sizing: border-box;
   text-decoration: none;
   background: var(--mw-chip-bg);
   border: 1px solid var(--mw-chip-border);
   transition: transform 160ms ease, background 160ms ease;
+}
+
+.mw-pill.mw-pill-rect {
+  border-radius: 8px;
+  height: 40px;
+  padding: 0 0.9rem;
 }
 
 .mw-pill:hover {
