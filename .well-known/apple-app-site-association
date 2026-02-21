@@ -3,7 +3,7 @@
         "apps": [],
         "details": [
             {
-                "appID": "8Q4JB5Y533.com.tripleglazedstudios.Weather",
+                "appIDs": ["8Q4JB5Y533.com.tripleglazedstudios.Weather", "795KYDW8AR.com.tripleglazedstudios.Weather"],
                 "paths": [
                     "/events/*"
                 ]
