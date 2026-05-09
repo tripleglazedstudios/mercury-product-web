@@ -246,33 +246,43 @@
 			.row {
 				display: flex;
 				flex-wrap: wrap;
-				width: 100%;
-				padding: 0 4px;
+				justify-content: center;
+				gap: 8px;
+				width: min(1024px, calc(100vw - 2.4em));
+				margin-top: 8px;
 			}
 
-			/* Create four equal columns that sits next to each other */
 			.column {
-				flex: 25%;
-				padding: 0 4px;
+				display: flex;
+				justify-content: center;
+				flex: 1 1 0;
+				max-width: 100%;
+				min-width: 0;
+			}
+
+			.column a {
+				display: block;
+				max-width: 100%;
 			}
 
 			.column img {
-				margin-top: 8px;
+				display: block;
+				height: auto;
+				max-width: 100%;
 				vertical-align: middle;
 				width: 100%;
 			}
 
-			/* Responsive layout - makes a two column-layout instead of four columns */
 			@media screen and (max-width: 800px) {
 				.column {
-					flex: 50%;
+					flex: 1 1 calc(50% - 8px);
 				}
 			}
 
-			/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+			/* Keep narrow screens from squeezing multiple screenshots onto one row. */
 			@media screen and (max-width: 600px) {
 				.column {
-					flex: 100%;
+					flex: 1 1 100%;
 					max-width: 100%;
 				}
 			}
