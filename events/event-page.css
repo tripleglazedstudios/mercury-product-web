@@ -1,0 +1,245 @@
+/*
+ * Author: Kai Dombrowski
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.container {
+    border: 1px solid transparent;
+    background:
+        linear-gradient(var(--mw-surface-strong), var(--mw-surface-strong)) padding-box,
+        linear-gradient(135deg, rgba(102, 126, 234, 0.65), rgba(118, 75, 162, 0.45), rgba(255, 255, 255, 0.25)) border-box;
+    backdrop-filter: blur(22px) saturate(160%);
+    -webkit-backdrop-filter: blur(22px) saturate(160%);
+    border-radius: 24px;
+    padding: 3rem;
+    box-shadow: var(--mw-shadow);
+    text-align: center;
+    margin: 3rem;
+    max-width: 680px;
+    width: 90%;
+    position: relative;
+    z-index: 1;
+}
+
+.wave-container {
+    margin-bottom: 2rem;
+}
+
+#wave {
+    font-size: 4rem;
+    animation: wave 3s ease-in-out infinite;
+    display: inline-block;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+@keyframes wave {
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(-15deg);
+    }
+
+    75% {
+        transform: rotate(10deg);
+    }
+}
+
+.main-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    color: var(--mw-text);
+    line-height: 1.2;
+    letter-spacing: 0;
+}
+
+.highlight {
+    font-weight: 800;
+}
+
+.app-showcase {
+    margin-bottom: 2rem;
+}
+
+.app-icon-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.app-icon-link {
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+#icon {
+    width: 140px;
+    height: 140px;
+    transition: transform 0.3s ease;
+    border-radius: 28px;
+    display: block;
+}
+
+#icon:hover {
+    transform: scale(1.05) translateY(-2px);
+}
+
+.icon-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    0% {
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    100% {
+        opacity: 0.8;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+.app-info {
+    margin-bottom: 2rem;
+}
+
+.app-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--mw-text);
+    margin-bottom: 0.5rem;
+}
+
+.app-description {
+    font-size: 1rem;
+    color: var(--mw-muted);
+    font-weight: 400;
+    line-height: 1.6;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.features-preview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    justify-items: center;
+    max-width: 450px;
+    margin: 0 auto 2.5rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: rgba(102, 126, 234, 0.12);
+    border: 1px solid rgba(102, 126, 234, 0.18);
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    width: 100%;
+    min-width: 200px;
+}
+
+.feature-icon {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.feature-text {
+    font-size: 0.9rem;
+    color: var(--mw-text);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.app-store-section {
+    margin-bottom: 2.5rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.85rem;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 2rem 1.5rem;
+        margin: 1rem 0.5rem 0.5rem;
+    }
+
+    .main-title {
+        font-size: 2rem;
+    }
+
+    #wave {
+        font-size: 3rem;
+    }
+
+    #icon {
+        width: 100px;
+        height: 100px;
+        border-radius: 22px;
+    }
+
+    .icon-glow {
+        width: 120px;
+        height: 120px;
+    }
+
+    .features-preview {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        max-width: 300px;
+    }
+
+    .feature-text {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 1.75rem;
+    }
+
+    .features-preview {
+        gap: 0.4rem;
+    }
+}
