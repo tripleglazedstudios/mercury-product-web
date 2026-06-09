@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en" class="mw-theme-marketing">
+    <head>
+        <title>Mercury Weather ☁️ - CommunityKit</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#667eea">
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1a1a2e">
+        <link rel="me" href="https://indieapps.space/@mercury">
+        <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+        <link rel="apple-touch-icon" sizes="512x512" href="/apple-touch-icon-512x512.png">
+        <link rel="apple-touch-icon" sizes="1024x1024" href="/apple-touch-icon-1024x1024.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="icon" href="/favicon.ico">
+        <meta name="description" content="Hello CommunityKit from Mercury Weather.">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../../site.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100dvh;
+            font-family: var(--mw-font, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+            color: var(--mw-text);
+        }
+
+        .container {
+            width: min(1120px, 100%);
+            margin: 0 auto;
+            padding: clamp(1.25rem, 5vw, 4.5rem);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: clamp(1.75rem, 5vw, 4rem);
+            align-items: center;
+        }
+
+        @media (max-width: 900px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .wave-container {
+            margin-bottom: 1.25rem;
+        }
+
+        #wave {
+            font-size: 2.75rem;
+            display: inline-block;
+            transform-origin: 70% 70%;
+            animation: wave 2.8s ease-in-out infinite;
+            filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.25));
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-12deg); }
+            75% { transform: rotate(10deg); }
+        }
+
+        .main-title {
+            font-size: clamp(2.75rem, 6.2vw, 4.75rem);
+            font-weight: 800;
+            line-height: 0.98;
+            letter-spacing: -0.05em;
+            margin: 0 0 1.6rem;
+        }
+
+        .highlight {
+            font-weight: 800;
+        }
+
+        .app-showcase {
+            display: flex;
+            align-items: center;
+            gap: 1.15rem;
+            margin-bottom: 1.35rem;
+        }
+
+        .app-icon-container {
+            position: relative;
+            display: inline-block;
+            flex-shrink: 0;
+        }
+
+        .app-icon-link {
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        #icon {
+            width: 84px;
+            height: 84px;
+            transition: transform 0.25s ease;
+        }
+
+        #icon:hover {
+            transform: translateY(-2px) scale(1.03);
+        }
+
+        .icon-glow {
+            position: absolute;
+            inset: -28px;
+            border-radius: 999px;
+            background: radial-gradient(circle at 35% 40%, rgba(34, 211, 238, 0.35), transparent 55%),
+                radial-gradient(circle at 70% 55%, rgba(167, 139, 250, 0.55), transparent 60%);
+            filter: blur(18px);
+            z-index: -1;
+            opacity: 0.9;
+        }
+
+        .app-info {
+            text-align: left;
+        }
+
+        .app-name {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin: 0 0 0.25rem;
+        }
+
+        .app-description {
+            font-size: 1rem;
+            color: var(--mw-muted);
+            font-weight: 500;
+            line-height: 1.55;
+            margin: 0;
+            max-width: 38rem;
+        }
+
+        .features-preview {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+            margin: 1.15rem 0 2.25rem;
+        }
+
+        .feature-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            padding: 0.55rem 0.85rem;
+            border-radius: 999px;
+            background: var(--mw-chip-bg);
+            border: 1px solid var(--mw-chip-border);
+            transition: transform 160ms ease, background 160ms ease;
+        }
+
+        .feature-icon {
+            font-size: 1.05rem;
+            width: 1.25rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feature-text {
+            font-size: 0.95rem;
+            color: var(--mw-text);
+            font-weight: 650;
+            white-space: nowrap;
+        }
+
+        .app-store-section {
+            margin-top: 1.25rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.85rem;
+        }
+
+        .screenshot-card {
+            position: relative;
+            z-index: 0;
+        }
+
+        .screenshot-card::before {
+            content: "";
+            position: absolute;
+            inset: -40px;
+            background: radial-gradient(circle at 28% 22%, rgba(34, 211, 238, 0.25), transparent 50%),
+                radial-gradient(circle at 74% 50%, rgba(167, 139, 250, 0.35), transparent 55%);
+            filter: blur(26px);
+            opacity: 0.9;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .screenshot-card img {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 28px;
+            border: 1px solid var(--mw-border);
+            background: rgba(255, 255, 255, 0.02);
+            box-shadow: 0 44px 120px -80px rgba(0, 0, 0, 0.85);
+        }
+
+        .press-section {
+            margin-top: clamp(2.75rem, 6vw, 4.75rem);
+        }
+
+        .press-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            margin: 0 0 1.25rem;
+            color: var(--mw-muted);
+        }
+
+        .press-quotes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1rem;
+        }
+
+        .press-quote-link {
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        .press-quote {
+            border-radius: 18px;
+            padding: 1.1rem 1.2rem;
+            background: rgba(10, 12, 24, 0.34);
+            border: 1px solid var(--mw-border);
+            backdrop-filter: blur(18px) saturate(160%);
+            -webkit-backdrop-filter: blur(18px) saturate(160%);
+            transition: transform 180ms ease, background 180ms ease;
+            height: 100%;
+        }
+
+        .press-quote:hover {
+            transform: translateY(-2px);
+            background: rgba(10, 12, 24, 0.42);
+        }
+
+        .quote-text {
+            font-size: 0.95rem;
+            line-height: 1.55;
+            margin: 0 0 0.65rem;
+            color: var(--mw-text);
+        }
+
+        .quote-source {
+            font-size: 0.85rem;
+            color: var(--mw-muted);
+            font-weight: 650;
+            margin: 0;
+        }
+
+        .qr-section {
+            margin-top: clamp(2.75rem, 6vw, 4.75rem);
+        }
+
+        .qr-card {
+            position: relative;
+            z-index: 0;
+            display: flex;
+            justify-content: center;
+            width: fit-content;
+            margin: 0 auto;
+            padding: clamp(1rem, 3vw, 1.5rem);
+            border-radius: 28px;
+            background: rgba(10, 12, 24, 0.34);
+            border: 1px solid var(--mw-border);
+            backdrop-filter: blur(18px) saturate(160%);
+            -webkit-backdrop-filter: blur(18px) saturate(160%);
+            box-shadow: 0 44px 120px -80px rgba(0, 0, 0, 0.85);
+        }
+
+        .qr-card::before {
+            content: "";
+            position: absolute;
+            inset: -40px;
+            background: radial-gradient(circle at 24% 35%, rgba(34, 211, 238, 0.2), transparent 48%),
+                radial-gradient(circle at 82% 50%, rgba(167, 139, 250, 0.3), transparent 55%);
+            filter: blur(26px);
+            opacity: 0.9;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .qr-code-link {
+            display: block;
+            width: min(220px, 72vw);
+            border-radius: 18px;
+            background: #fff;
+            overflow: hidden;
+            transition: transform 180ms ease, box-shadow 180ms ease;
+        }
+
+        .qr-code-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 24px 60px -36px rgba(255, 255, 255, 0.65);
+        }
+
+        .qr-code {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            #wave {
+                animation: none !important;
+            }
+        }
+    </style>
+
+</head>
+	    <body>
+	        <main class="container">
+	            <div class="hero-section">
+	                <div class="hero-grid">
+	                    <div class="hero-copy">
+	                        <div class="wave-container">
+	                            <div id="wave" aria-hidden="true">👋</div>
+	                        </div>
+	                        
+	                        <h1 class="main-title">
+	                            Forecasts, <span class="highlight mw-gradient-text">beautifully</span> done.
+	                        </h1>
+	                        
+	                        <div class="app-showcase">
+	                            <a href="https://apps.apple.com/app/apple-store/id1621800675?pt=120812402&amp;ct=community-kit&amp;mt=8" class="app-icon-link">
+	                                <div class="app-icon-container">
+	                                    <img id="icon" src="../../img/icon@3x.png" srcset="../../img/icon@1x.png 1x, ../../img/icon@2x.png 2x, ../../img/icon@3x.png 3x" alt="Mercury Weather app icon" width="84" height="84" decoding="async">
+	                                    <div class="icon-glow"></div>
+	                                </div>
+	                            </a>
+	                            
+	                            <div class="app-info">
+	                                <h2 class="app-name mw-gradient-text">Mercury Weather</h2>
+	                                <p class="app-description">Crystal clear design meets hyper-local forecasts. Available on iPhone, iPad, Mac, Apple Watch, and Vision Pro.</p>
+	                            </div>
+	                        </div>
+	                        
+	                        <div class="features-preview">
+	                            <div class="feature-item">
+	                                <span class="feature-icon icon-pin">📍</span>
+	                                <span class="feature-text">Hyper-local forecasts</span>
+	                            </div>
+	                            <div class="feature-item">
+	                                <span class="feature-icon icon-chart">📊</span>
+	                                <span class="feature-text">Beautiful charts</span>
+	                            </div>
+	                            <div class="feature-item">
+	                                <span class="feature-icon icon-map">🗺️</span>
+	                                <span class="feature-text">Trip forecast</span>
+	                            </div>
+	                            <div class="feature-item">
+	                                <span class="feature-icon icon-phone">📱</span>
+	                                <span class="feature-text">All Apple devices</span>
+	                            </div>
+	                        </div>
+	                        
+	                        <div class="app-store-section">
+	                            <a href="https://apps.apple.com/app/apple-store/id1621800675?pt=120812402&amp;ct=community-kit&amp;mt=8" class="mw-app-store-badge"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/white/en-us?size=120x40&amp;releaseDate=1662940800" alt="Download on the App Store"></a>
+	                            <a href="../../press" class="mw-pill mw-pill-rect">📰 Press Kit</a>
+	                        </div>
+	                    </div>
+	                    
+	                    <div class="hero-media">
+	                        <div class="screenshot-card" aria-label="Mercury Weather screenshots preview">
+	                            <img src="../../mercury-highlight.webp" alt="A preview of Mercury Weather on iPhone, showing the forecast, charts, and widgets." width="3000" height="1500" decoding="async">
+	                        </div>
+	                    </div>
+	                </div>
+	                
+	                <div class="press-section">
+	                    <h3 class="press-title">Loved on the internet</h3>
+	                    <div class="press-quotes">
+	                        <a href="https://www.macstories.net/stories/macstories-selects-2023-recognizing-the-best-apps-of-the-year/#best-design" target="_blank" class="press-quote-link">
+	                            <div class="press-quote">
+	                                <p class="quote-text">"Mercury Weather is a modern app that is designed to be both beautiful and delightfully simple [...] uses a palette of elegant gradients [...] the forecast is always a pleasure to read."</p>
+	                                <p class="quote-source">— Niléane, MacStories Selects – Best Design</p>
+	                            </div>
+	                        </a>
+	                        <a href="https://daringfireball.net/linked/2022/09/20/mercury-weather" target="_blank" class="press-quote-link">
+	                            <div class="press-quote">
+	                                <p class="quote-text">"Great presentation [...] its creators have decided how it should look, and they've knocked it out of the park."</p>
+	                                <p class="quote-source">— John Gruber, Daring Fireball</p>
+	                            </div>
+	                        </a>
+                            <a href="https://apps.apple.com/iphone/story/id1805972582" target="_blank" class="press-quote-link">
+	                            <div class="press-quote">
+	                                <p class="quote-text">"What we love: How much info Mercury Weather packs into its main view without overwhelming you with numbers."</p>
+	                                <p class="quote-source">— App Store, App of the Day</p>
+	                            </div>
+	                        </a>
+	                        <a href="https://apps.apple.com/us/story/id1720062423" target="_blank" class="press-quote-link">
+	                            <div class="press-quote">
+	                                <p class="quote-text">"Mercury Weather's colorful gradients and minimalist design make it easy to get the full forecast at a glance."</p>
+	                                <p class="quote-source">— Apple Developer Spotlight</p>
+	                            </div>
+	                        </a>
+	                        <a href="https://9to5mac.com/2023/08/18/mercury-weather-app/" target="_blank" class="press-quote-link">
+	                            <div class="press-quote">
+	                                <p class="quote-text">"Simple but elegant new weather app for Apple devices."</p>
+	                                <p class="quote-source">— Filipe Espósito, 9to5Mac</p>
+	                            </div>
+	                        </a>
+	                        <a href="https://www.imore.com/apps/this-simple-iphone-weather-app-is-a-must-have-for-travellers" target="_blank" class="press-quote-link">
+	                            <div class="press-quote">
+	                                <p class="quote-text">"Everything about Mercury Weather is a little simpler, a little more refined and a little more enjoyable than its rivals."</p>
+	                                <p class="quote-source">— Becca Caddy, iMore</p>
+	                            </div>
+	                        </a>
+	                    </div>
+	                </div>
+
+	                <div class="qr-section">
+	                    <div class="qr-card">
+	                        <a href="https://mercuryweather.app/events/wwdc26" class="qr-code-link" aria-label="Open mercuryweather.app/events/wwdc26">
+	                            <img class="qr-code" src="wwdc26-qr.svg" alt="QR code linking to mercuryweather.app/events/wwdc26" width="296" height="296" decoding="async">
+	                        </a>
+	                    </div>
+	                </div>
+	            </div>
+	        </main>
+	    </body>
+    
+    </html>
