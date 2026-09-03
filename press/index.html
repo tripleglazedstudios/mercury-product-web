@@ -273,6 +273,65 @@
 				width: 100%;
 			}
 
+			.press-video-demo {
+				align-self: center;
+				width: min(1024px, calc(100vw - 2.4em));
+				margin: clamp(1.25rem, 3vw, 2rem) 0 clamp(1.75rem, 3vw, 2.5rem);
+			}
+
+			.press-video-demo__frame {
+				position: relative;
+				isolation: isolate;
+				display: flex;
+				justify-content: center;
+				width: 100%;
+				aspect-ratio: 16 / 9;
+				overflow: hidden;
+				background: #16091f;
+			}
+
+			.press-video-demo__frame::before {
+				content: "";
+				position: absolute;
+				inset: -8%;
+				z-index: -2;
+				background: url("img/iOS-27-siri-demo-poster.webp") center / 100% 100% no-repeat;
+				filter: blur(clamp(20px, 3vw, 36px)) saturate(1.15);
+				transform: scale(1.04);
+			}
+
+			.press-video-demo__frame::after {
+				content: "";
+				position: absolute;
+				inset: 0;
+				z-index: -1;
+				background: linear-gradient(90deg, rgba(13, 6, 24, 0.16), rgba(13, 6, 24, 0.02) 35%, rgba(13, 6, 24, 0.02) 65%, rgba(13, 6, 24, 0.16));
+				pointer-events: none;
+			}
+
+			.press-video-demo video {
+				display: block;
+				width: 100%;
+				height: 100%;
+				object-fit: contain;
+				background: transparent;
+			}
+
+			.press-video-demo figcaption {
+				display: flex;
+				align-items: baseline;
+				justify-content: center;
+				flex-wrap: wrap;
+				gap: 0.25em 0.65em;
+				margin-top: 0.85em;
+				font-size: 0.9em;
+				color: rgba(31, 30, 68, 0.72);
+			}
+
+			.press-video-demo__title {
+				font-weight: 600;
+			}
+
 			@media screen and (max-width: 800px) {
 				.column {
 					flex: 1 1 calc(50% - 8px);
@@ -311,6 +370,9 @@
 				}
 				.press-header.is-stuck .press-header__label-dot {
 					background: linear-gradient(135deg, #9bb4ff, #cadaff);
+				}
+				.press-video-demo figcaption {
+					color: rgba(226, 231, 255, 0.72);
 				}
 				h2 {
 					color: #9fbfff;
@@ -369,6 +431,23 @@
 					<li><b>App Resizability:</b> Mercury is fully resizable across iOS, iPadOS, and macOS, with a dynamic layout and interface that adapt as the available space changes across different devices.</li>
 					<li><b>Monthly Average Comparisons:</b> You can now compare Monthly Averages between different locations, making it easy to see how typical weather conditions differ from place to place throughout the year.</li>
 				</ul>
+
+				<figure class="press-video-demo">
+					<div class="press-video-demo__frame">
+						<video width="882" height="1920" controls playsinline preload="metadata"
+							poster="img/iOS-27-siri-demo-poster.webp"
+							aria-label="Mercury Weather Siri integration demo">
+							<source src="video/iOS-27-siri-demo.mp4" type="video/mp4">
+							Your browser does not support embedded video. <a href="video/iOS-27-siri-demo.mp4">Download the Siri demo video</a>.
+						</video>
+					</div>
+					<figcaption>
+						<span class="press-video-demo__title">Mercury Weather Siri demo</span>
+						<span aria-hidden="true">·</span>
+						<span>1:30</span>
+						<a class="in-text-link" href="video/iOS-27-siri-demo.mp4" download>Download MP4</a>
+					</figcaption>
+				</figure>
 
 				<div class="row">
 					<div class="column" style="flex: 100%; max-width: 100%;">
