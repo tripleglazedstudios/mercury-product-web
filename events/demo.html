@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Mercury Weather Demo</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1a1a2e">
+        <link rel="me" href="https://indieapps.space/@mercury">
+        <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/touch-icon-iphone-retina.png">
+        <link rel="icon" href="/favicon.ico">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header class="hero">
+            <img class="icon" src="../img/icon@3x.png" srcset="../img/icon@1x.png 1x, ../img/icon@2x.png 2x, ../img/icon@3x.png 3x" alt="Mercury Weather app icon">
+            <h1 class="title">Explore Mercury Weather</h1>
+            <p class="subtitle">Quick highlights of our favorite features.</p>
+            <div class="store">
+                <a href="https://apps.apple.com/app/apple-store/id1621800675?pt=120812402&ct=web&mt=8" class="app-store-button-original" style="display: inline-block; overflow: hidden; border-radius: 6px; width: 120px; height: 40px;"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/white/en-us?size=120x40&amp;releaseDate=1662940800" alt="Download on the App Store" style="border-radius: 6px; width: 120px; height: 40px;"></a>
+            </div>
+        </header>
+
+        <section class="features">
+            <div class="feature">
+                <div class="feature-image">
+                    <img src="../press/img/iphone-trip-forecast1f.png" alt="Trip forecast screenshot">
+                </div>
+                <div class="feature-text">
+                    <h2>Trip Forecast</h2>
+                    <p>Plan ahead with weather for each stop on your journey.</p>
+                </div>
+            </div>
+
+            <div class="feature">
+                <div class="feature-image">
+                    <img src="../press/img/iOS-interactive-widgets.png" alt="Interactive widget screenshot">
+                </div>
+                <div class="feature-text">
+                    <h2>Interactive Widgets</h2>
+                    <p>Get quick details and control right from your Home Screen.</p>
+                </div>
+            </div>
+
+            <div class="feature">
+                <div class="feature-image">
+                    <img src="../press/img/mac-framed1f.png" alt="Mac screenshot">
+                </div>
+                <div class="feature-text">
+                    <h2>Made for Mac</h2>
+                    <p>Enjoy Mercury Weather on the big screen.</p>
+                </div>
+            </div>
+
+            <div class="feature">
+                <div class="feature-image">
+                    <img src="../press/img/watchOS10-banner.png" alt="Apple Watch screenshot">
+                </div>
+                <div class="feature-text">
+                    <h2>Watch App</h2>
+                    <p>Check the forecast at a glance from your wrist.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <a href="../press" class="press-link">📰 Press Kit</a>
+        </footer>
+    </body>
+    <style>
+        html {
+            background: #ffffff;
+            color: #2d3748;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 1rem 3rem;
+        }
+
+        .hero .icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            margin-bottom: 1rem;
+        }
+
+        .title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: #4a5568;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .store {
+            margin-bottom: 2rem;
+        }
+
+        .features {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+            padding: 0 1rem 3rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            min-height: 680px;
+        }
+
+        .feature:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .feature-image img {
+            height: 380px;
+            width: auto;
+            max-width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .feature-text {
+            flex: 1 1 280px;
+            max-width: 480px;
+        }
+
+        .feature-text h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .feature-text p {
+            font-size: 1rem;
+            color: #4a5568;
+        }
+
+        .footer {
+            text-align: center;
+            padding-bottom: 2rem;
+        }
+
+        .press-link {
+            color: #718096;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            background: rgba(113, 128, 150, 0.1);
+        }
+
+        .press-link:hover {
+            color: #4a5568;
+            background: rgba(113, 128, 150, 0.2);
+        }
+
+        .app-store-button-original { transition: all 0.2s ease; }
+        .app-store-button-original:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+
+        @media (prefers-color-scheme: dark) {
+            html {
+                background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+                color: #e2e8f0;
+            }
+
+            .title {
+                background: linear-gradient(135deg, #e2e8f0, #cbd5e0);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+
+            .subtitle,
+            .feature-text p,
+            .press-link { color: #a0aec0; }
+
+            .press-link:hover { color: #cbd5e0; }
+
+            .feature-image img { box-shadow: 0 4px 12px rgba(0,0,0,0.4); }
+        }
+
+        @media (max-width: 768px) {
+            .feature { flex-direction: column; }
+            .feature:nth-child(even) { flex-direction: column; }
+            .feature-image img { width: 260px; }
+        }
+    </style>
+</html>
